@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Project {
   title: string;
   description: string;
@@ -8,25 +10,11 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Project One",
-    description: "A short description of what this does and why it matters. Swap this with your real work.",
-    url: "https://example.com",
-    tech: ["React", "TypeScript", "Node.js"],
-    gradient: "from-blue-500 to-cyan-400",
-  },
-  {
-    title: "Project Two",
-    description: "Another project — a tool, app, or design system you've built and are proud of.",
-    url: "https://example.com",
-    tech: ["Next.js", "Tailwind", "Prisma"],
-    gradient: "from-violet-500 to-purple-400",
-  },
-  {
-    title: "Project Three",
-    description: "One more showcase piece. Add as many as you like — the grid adapts automatically.",
-    url: "https://example.com",
-    tech: ["Python", "FastAPI", "PostgreSQL"],
-    gradient: "from-pink-500 to-rose-400",
+    title: "WSB Screener",
+    description: "A real-time dashboard tracking stock mention surges on r/WallStreetBets, with price charts and sentiment analysis.",
+    url: "/wsb-screener",
+    tech: ["Next.js", "Recharts", "Reddit API"],
+    gradient: "from-orange-500 to-red-400",
   },
 ];
 
@@ -49,9 +37,6 @@ export default function Home() {
             </a>
             <a href="#projects" className="text-sm text-gray-500 transition-colors hover:text-gray-900">
               Projects
-            </a>
-            <a href="#connect" className="text-sm text-gray-500 transition-colors hover:text-gray-900">
-              Connect
             </a>
           </div>
 
@@ -81,35 +66,49 @@ export default function Home() {
       <main className="pt-16">
         {/* Hero */}
         <section className="mx-auto max-w-5xl px-6 pb-20 pt-24 md:pt-32">
-          <p
-            className="anim-in mb-3 font-mono text-sm uppercase tracking-widest text-blue-600"
-            style={{ animationDelay: "0ms" }}
-          >
-            hey there,
-          </p>
-          <h1
-            className="anim-in mb-6 text-6xl font-bold tracking-tight text-gray-900 md:text-8xl"
-            style={{ animationDelay: "80ms" }}
-          >
-            Hi, I&apos;m Darshan 👋
-          </h1>
-          <p
-            className="anim-in mb-8 max-w-xl text-xl leading-relaxed text-gray-500"
-            style={{ animationDelay: "160ms" }}
-          >
-            A website to showcase my experiments with coding and AI.
-          </p>
-          <a
-            href="https://www.linkedin.com/in/darshanmistry/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="anim-in inline-flex items-center gap-2.5 rounded-full border border-[#0A66C2]/30 bg-[#0A66C2]/5 px-5 py-2.5 text-sm font-medium text-[#0A66C2] transition-all hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10"
-            style={{ animationDelay: "240ms" }}
-          >
-            <LinkedInIcon />
-            LinkedIn
-            <span className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
-          </a>
+          <div className="flex flex-col-reverse items-center gap-10 md:flex-row md:justify-between">
+            <div className="flex-1">
+              <p
+                className="anim-in mb-3 font-mono text-sm uppercase tracking-widest text-blue-600"
+                style={{ animationDelay: "0ms" }}
+              >
+                hey there,
+              </p>
+              <h1
+                className="anim-in mb-6 text-6xl font-bold tracking-tight text-gray-900 md:text-8xl"
+                style={{ animationDelay: "80ms" }}
+              >
+                Hi, I&apos;m Darshan 👋
+              </h1>
+              <p
+                className="anim-in mb-8 max-w-xl text-xl leading-relaxed text-gray-500"
+                style={{ animationDelay: "160ms" }}
+              >
+                A website to showcase my experiments with coding and AI.
+              </p>
+              <a
+                href="https://www.linkedin.com/in/darshanmistry/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="anim-in inline-flex items-center gap-2.5 rounded-full border border-[#0A66C2]/30 bg-[#0A66C2]/5 px-5 py-2.5 text-sm font-medium text-[#0A66C2] transition-all hover:border-[#0A66C2]/60 hover:bg-[#0A66C2]/10"
+                style={{ animationDelay: "240ms" }}
+              >
+                <LinkedInIcon />
+                LinkedIn
+                <span className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+              </a>
+            </div>
+            <div className="anim-in shrink-0" style={{ animationDelay: "80ms" }}>
+              <Image
+                src="/avatar.png"
+                alt="Darshan Mistry"
+                width={260}
+                height={260}
+                className="rounded-full object-cover shadow-lg"
+                priority
+              />
+            </div>
+          </div>
         </section>
 
         <SectionDivider />
@@ -119,39 +118,10 @@ export default function Home() {
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-blue-600">about</p>
           <h2 className="mb-8 text-4xl font-bold tracking-tight text-gray-900">A bit about me</h2>
           <p className="max-w-2xl text-lg leading-relaxed text-gray-500">
-            Mathematician turned financier. Originally from Leicester, UK, I spent nearly a decade
-            in London before moving to Abu Dhabi in 2025. I enjoy solving problems, exploring new
-            technology, and staying active through running, cycling, and tennis.
+            Mathematician turned financier. Originally from Leicester (UK), I spent nearly a decade
+            working in London before moving to Abu Dhabi in 2025. I enjoy solving problems, exploring
+            new technologies, and staying active through running, cycling, and tennis.
           </p>
-        </section>
-
-        <SectionDivider />
-
-        {/* LinkedIn */}
-        <section id="connect" className="mx-auto max-w-5xl px-6 py-20">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-blue-600">connect</p>
-          <h2 className="mb-8 text-4xl font-bold tracking-tight text-gray-900">Let&apos;s connect</h2>
-          <a
-            href="https://www.linkedin.com/in/darshanmistry/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-6 rounded-2xl border border-[#0A66C2]/20 bg-[#0A66C2]/5 p-6 transition-all duration-300 hover:border-[#0A66C2]/40 hover:bg-[#0A66C2]/10 md:p-8"
-          >
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#0A66C2] text-white shadow-sm">
-              <LinkedInIcon size={24} />
-            </span>
-            <div className="flex-1 min-w-0">
-              <p className="text-lg font-semibold text-gray-900 group-hover:text-[#0A66C2] transition-colors">
-                Darshan Mistry
-              </p>
-              <p className="mt-1 text-sm text-gray-500">
-                View my professional background, experience, and career history on LinkedIn.
-              </p>
-            </div>
-            <span className="shrink-0 text-gray-300 text-xl transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#0A66C2]">
-              ↗
-            </span>
-          </a>
         </section>
 
         <SectionDivider />
